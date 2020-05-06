@@ -1,0 +1,23 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.sidebar {
+  left: 0;
+  margin-top: $header-height-desktop;
+  width: 100%;
+  height: $content-height-desktop;
+
+  @include phones {
+    margin-top: $header-height-phone;
+    height: $content-height-phone;
+  }
+
+  &__sidenav {
+      box-sizing: border-box;
+      width: 250px;
+      
+      @include phones {
+          width: 100%;
+      }
+  }
+}

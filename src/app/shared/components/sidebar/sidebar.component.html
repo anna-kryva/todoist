@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidebar">
+  <mat-sidenav
+    #sidebar
+    class="sidebar__sidenav"    
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-selection-list>
+      <h2 matSubheader>Filter</h2>
+      <mat-list-option>Done</mat-list-option>
+      <mat-list-option>Not done</mat-list-option>
+    </mat-selection-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidebar__content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,37 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  &__row {
+    padding: 0 50px;
+    height: $header-height-desktop;
+
+    @include phones {
+      padding: 0 10px;
+      height: $header-height-phone;
+    }
+  }
+
+  &__form {
+    margin: 0 20px;
+    width: 200px;
+
+    @include phones {
+      margin: 0 10px;
+    }
+  }
+
+  &__input {
+    font-size: 18px;
+  }
+
+  &__settings {
+    margin-left: auto;
+  }
+}
