@@ -1,5 +1,5 @@
-@import "../../../../styles/mixins";
-@import "../../../../styles/variables";
+@import "src/styles/mixins";
+@import "src/styles/variables";
 
 .sidebar {
   left: 0;
@@ -14,10 +14,6 @@
 
   &__sidenav {
       box-sizing: border-box;
-      width: 250px;
-      
-      @include phones {
-          width: 100%;
-      }
+      width: 200px;
   }
 }

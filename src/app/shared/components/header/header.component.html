@@ -1,19 +1,12 @@
 <mat-toolbar color="primary" class="header">
     <mat-toolbar-row class="header__row">
-        <button mat-icon-button (click)="toggleSidenav.emit()">
+        <button mat-icon-button (click)="toggleSidebar()">
           <mat-icon>menu</mat-icon>
         </button>
 
-        <mat-form-field class="header__form">
-          <!-- <mat-label>Search</mat-label> -->
-          <input matInput type="text" [(ngModel)]="value" class="header__input">
-          <button mat-icon-button mat-button *ngIf="value" matSuffix (click)="value=''">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
-
-        <a mat-icon-button routerLink="/" class="header__settings">
-          <mat-icon>settings</mat-icon>
-        </a>
+        <button mat-button class="header__logout" (click)="logout()">
+          <mat-icon class="header__icon">exit_to_app</mat-icon>
+          Log out
+        </button>
     </mat-toolbar-row>
   </mat-toolbar>

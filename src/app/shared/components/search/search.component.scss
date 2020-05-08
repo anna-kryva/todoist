@@ -1,0 +1,24 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.search {
+  max-width: 700px;
+	margin: 20px auto;
+	
+	display: flex;
+	flex-wrap: nowrap;
+
+  @include phones {
+    margin: 20px 10px;
+  }
+
+  &__field {
+		margin: 0 20px;
+		width: 90%;
+    max-width: 300px;
+
+    @include phones {
+      margin: 0 10px;
+    }
+  }
+}

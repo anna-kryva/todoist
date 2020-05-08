@@ -1,5 +1,5 @@
-@import "../../../../styles/mixins";
-@import "../../../../styles/variables";
+@import "src/styles/mixins";
+@import "src/styles/variables";
 
 .header {
   position: fixed;
@@ -18,20 +18,7 @@
     }
   }
 
-  &__form {
-    margin: 0 20px;
-    width: 200px;
-
-    @include phones {
-      margin: 0 10px;
-    }
-  }
-
-  &__input {
-    font-size: 18px;
-  }
-
-  &__settings {
+  &__logout {
     margin-left: auto;
   }
 }

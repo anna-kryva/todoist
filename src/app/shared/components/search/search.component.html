@@ -1,0 +1,18 @@
+<mat-card class="search">
+  <mat-form-field class="search__field">
+    <input 
+      class="header__input" 
+      matInput type="text" 
+      placeholder="Search..." 
+      [(ngModel)]="searchStr"
+      (change)="search()">
+    <button 
+      mat-icon-button 
+      mat-button 
+      *ngIf="searchStr" 
+      matSuffix (click)="searchStr=''"
+    ><mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-mini-fab color="accent" (click)="search()"><mat-icon>search</mat-icon></button>
+</mat-card>
