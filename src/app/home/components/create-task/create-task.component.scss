@@ -1,0 +1,19 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.create {
+    max-width: 700px;
+    margin: 20px auto;
+
+    @include phones {
+        margin: 20px 10px;
+    }
+
+    &__content {
+        padding: 10px 0; 
+    }
+
+    &__field {
+        width: 100%;
+    }
+}
