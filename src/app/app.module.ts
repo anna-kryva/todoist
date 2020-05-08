@@ -1,55 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './shared/modules/material.module';
+import { SharedModule } from './shared/modules/shared.module';
 
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { TaskPageComponent } from './task-page/task-page.component';
+import { HomePageComponent } from './home/pages/home-page/home-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { TaskComponent } from './shared/components/task/task.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './shared/components/navigation/navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { TaskComponent } from './home/components/task/task.component';
+import { CreateTaskComponent } from './home/components/create-task/create-task.component';
+import { SearchComponent } from './shared/components/search/search.component';
 
-import { SidebarService } from './shared/services/sidebar.service';
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     HomePageComponent,
-    TaskPageComponent,
     HeaderComponent,
     SidebarComponent,
     TaskComponent,
-    NavigationComponent
+    CreateTaskComponent,
+    SearchComponent,
+    SearchPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule, 
-    HttpClientModule,
+    MaterialModule,
     FormsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
-  providers: [SidebarService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
