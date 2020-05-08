@@ -1,0 +1,17 @@
+<div class="toolbar">
+    <app-search></app-search>
+    <app-create-task></app-create-task>
+</div>
+<ul class="todos" *ngIf="todos.length; else loading">
+    <li *ngFor="let todo of todos | filterTodos:done | searchTodos:searchStr" class="todos__item">
+        <app-task [id]="todo.id" [title]="todo.title" [completed]="todo.completed"></app-task>
+    </li>
+</ul>
+
+<ng-template #loading>
+    <mat-progress-spinner
+        class="spinner"
+        color="accent"
+        mode="indeterminate">
+    </mat-progress-spinner>
+</ng-template>
