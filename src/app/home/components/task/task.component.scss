@@ -1,0 +1,53 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.task {
+  max-width: 700px;
+  margin: 20px auto;
+
+  &__ready {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @include phones {
+      flex-direction: column;
+    }
+  }
+
+  &__checkbox {
+    display: block;
+    margin: auto 0 !important;
+  }
+
+  &__divider {
+    margin: 0 10px;
+
+    @include phones {
+      display: none;
+    }
+  }
+
+  &__content {
+    margin: auto 0;
+
+    @include phones {
+      margin-top: 10px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto 0 auto auto !important;
+    padding: 0;
+  }
+
+  &__field {
+    width: 100%;
+  }
+
+  &__button {
+    margin-right: 10px;
+  }
+}

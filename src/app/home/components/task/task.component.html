@@ -1,0 +1,46 @@
+<mat-card class="task">
+  <div class="task__ready">
+    <mat-checkbox class="task__checkbox" [(ngModel)]='completed' (click)="check()" [disabled]="isChanging || checked">Done</mat-checkbox>
+    <mat-divider [vertical]="true" class="task__divider"></mat-divider>
+    <mat-card-content class="task__content">
+      <p>{{title}}</p>
+    </mat-card-content>
+    <mat-card-actions class="task__actions">
+      <button mat-icon-button [disabled]="isChanging" (click)="edit()">
+          <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button [disabled]="isChanging || deleted" (click)="remove()">
+          <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+  <div class="task__change" *ngIf="isChanging">
+    <mat-form-field class="task__field" appearance="standard">
+      <mat-label>To-do</mat-label>
+      <textarea 
+        class="task__input" 
+        matInput 
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="6"
+        [formControl]="newTitle" 
+        placeholder="Go to the grocery shop"></textarea>
+      <mat-error *ngIf="newTitle.hasError('required')">
+        Text is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="newTitle.hasError('maxlength')">
+        Text length should be less than 512 characters.
+      </mat-error>
+    </mat-form-field>
+    <div class="task__actions">
+      <button 
+        class="task__button" mat-raised-button color="accent" 
+        [disabled]="!newTitle.valid || submitted" (click)="onSave()">
+        <mat-icon>save</mat-icon>Save</button>
+      <button 
+        class="task__button" mat-raised-button color="accent"
+        (click)="onCancel()"
+        ><mat-icon>cancel</mat-icon>Cancel</button>
+    </div>
+  </div>
+</mat-card>
