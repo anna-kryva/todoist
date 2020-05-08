@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/modules/material.module';
@@ -18,6 +19,7 @@ import { SearchComponent } from './shared/components/search/search.component';
 
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
