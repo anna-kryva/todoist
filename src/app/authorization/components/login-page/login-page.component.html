@@ -1,0 +1,49 @@
+<mat-card class="login__card" color="primary">
+  <mat-card-header class="login__header">
+    <mat-card-title class="login__title">Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="login__content">
+    <form [formGroup]="loginForm" class="login__form">
+      <mat-error *ngIf="authService.error$ | async as error">{{error}}</mat-error>
+      <mat-form-field class="login__field" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input 
+          class="login__input" 
+          matInput 
+          formControlName="email" 
+          placeholder="abc@xyz.com" 
+          name="email">
+          <mat-hint>Enter: angular@love.com</mat-hint>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="login__field" appearance="standard">
+        <mat-label>Password</mat-label>
+        <input 
+          class="login__input" 
+          matInput 
+          formControlName="password" 
+          placeholder="password" 
+          type="password"
+          name="password">
+          <mat-hint>Enter: 12345678</mat-hint>
+        <mat-error *ngIf="loginForm.controls['password'].hasError('minlength') 
+          || loginForm.controls['password'].hasError('maxlength')">
+          Password length should be between 6 and 32 characters
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions class="login__button">
+    <button mat-raised-button (click)="onSubmit()" [disabled]="!loginForm.valid || submitted" color="primary">Login</button>
+  </mat-card-actions>
+
+</mat-card>
