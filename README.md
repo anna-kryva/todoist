@@ -11,7 +11,3 @@ Authorization is made with [Google Firebase](https://firebase.google.com/).
 email: angular@love.com
 password: 12345678
 ```
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
